@@ -1,0 +1,32 @@
+SELECT * FROM t_employees WHERE deptno ='30'
+-- 第一题
+SELECT empno,ename,deptno FROM t_employees WHERE job='经理'
+-- 第二题
+SELECT * FROM t_employees WHERE sal < comm
+-- 第三题
+SELECT * FROM t_employees WHERE sal/100*60 < comm
+-- 第四题
+SELECT * FROM t_employees WHERE deptno IN ('10','20') AND job IN ('经理','分析员')
+-- 第五题
+SELECT * FROM t_employees WHERE deptno IN ('10','20') AND job IN ('经理','分析员') 
+OR  job NOT IN ('经理','武装上将') AND sal>='3000'
+-- 第六题
+SELECT * FROM t_employees WHERE comm IS NULL OR comm<'1000'
+-- 第七题
+SELECT * FROM t_employees WHERE ename LIKE '___'
+-- 第八题
+SELECT * FROM t_employees WHERE hiredate>='2000'
+-- 第九题
+SELECT * FROM t_employees ORDER BY empno ASC
+-- 第十题
+SELECT * FROM t_employees ORDER BY sal DESC
+-- 第十一题
+SELECT AVG(sal) FROM t_employees
+-- 第十二题
+SELECT COUNT(j.ename), t.dname FROM  t_dept t
+LEFT JOIN t_employees j ON t.deptno=j.deptno
+WHERE t.dname IN('董事部','公关部','武统部','财务部')
+GROUP BY dname
+-- 第十三题
+SELECT AVG(sal),MAX(sal),MIN(sal) FROM t_employees
+-- 第十四题
